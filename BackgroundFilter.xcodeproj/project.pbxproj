@@ -14,6 +14,8 @@
 		F37345192A79440B0029CBA4 /* MainImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37345182A79440B0029CBA4 /* MainImageView.swift */; };
 		F373451B2A7945E10029CBA4 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F373451A2A7945E10029CBA4 /* Renderer.swift */; };
 		F3C6A8812A7A261A00861326 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = F3C6A8802A7A261A00861326 /* Shaders.metal */; };
+		F3C6A8842A7A565D00861326 /* red_brick.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F3C6A8832A7A565C00861326 /* red_brick.jpeg */; };
+		F3C6A8862A7A65A000861326 /* face.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3C6A8852A7A65A000861326 /* face.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,9 @@
 		F37345182A79440B0029CBA4 /* MainImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainImageView.swift; sourceTree = "<group>"; };
 		F373451A2A7945E10029CBA4 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		F3C6A8802A7A261A00861326 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		F3C6A8822A7A557300861326 /* flower.HEIC */ = {isa = PBXFileReference; lastKnownFileType = file; path = flower.HEIC; sourceTree = "<group>"; };
+		F3C6A8832A7A565C00861326 /* red_brick.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red_brick.jpeg; sourceTree = "<group>"; };
+		F3C6A8852A7A65A000861326 /* face.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = face.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +69,9 @@
 				F37345182A79440B0029CBA4 /* MainImageView.swift */,
 				F373451A2A7945E10029CBA4 /* Renderer.swift */,
 				F3C6A8802A7A261A00861326 /* Shaders.metal */,
+				F3C6A8822A7A557300861326 /* flower.HEIC */,
+				F3C6A8832A7A565C00861326 /* red_brick.jpeg */,
+				F3C6A8852A7A65A000861326 /* face.jpg */,
 			);
 			path = BackgroundFilter;
 			sourceTree = "<group>";
@@ -134,6 +142,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C6A8862A7A65A000861326 /* face.jpg in Resources */,
+				F3C6A8842A7A565D00861326 /* red_brick.jpeg in Resources */,
 				F37345122A7943260029CBA4 /* Preview Assets.xcassets in Resources */,
 				F373450F2A7943260029CBA4 /* Assets.xcassets in Resources */,
 			);
@@ -287,6 +297,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,6 +327,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

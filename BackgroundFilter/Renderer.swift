@@ -32,15 +32,15 @@ class Renderer: NSObject, MTKViewDelegate {
         
         // Background View
          // Triangle 1
-        Vertex(position: float3(-1, 1, 0), color: float4(0.5, 0.5, 0.5, 1), texture: float2(0, 0)), // Top Left
-        Vertex(position: float3(-1, -0.3, 0), color: float4(0.5, 0.5, 0.5, 1), texture: float2(0, 1)), // Bottom Left
-        Vertex(position: float3(1, -0.3, 0), color: float4(0.5, 0.5, 0.5, 1), texture: float2(1, 1)), //Bottom Right
+        Vertex(position: float3(-1, 1, 0), color: float4(1, 0, 0, 1), texture: float2(0, 0)), // Top Left
+        Vertex(position: float3(-1, -1, 0), color: float4(0, 1, 0, 1), texture: float2(0, 1)), // Bottom Left
+        Vertex(position: float3(1, -1, 0), color: float4(0, 0, 1, 1), texture: float2(1, 1)), //Bottom Right
         
         // Triangle 2
         
-        Vertex(position: float3(-1, 1, 0), color: float4(0.5, 0.5, 0.5, 1), texture: float2(0, 0)), // Top Left
-        Vertex(position: float3(1, 1, 0), color: float4(0.5, 0.5, 0.5, 1), texture: float2(1, 0)), // Top Right
-        Vertex(position: float3(1, -0.3, 0), color: float4(0.5, 0.5, 0.5, 1), texture: float2(1, 1)), // Bottom Right
+        Vertex(position: float3(-1, 1, 0), color: float4(1, 0, 0, 1), texture: float2(0, 0)), // Top Left
+        Vertex(position: float3(1, 1, 0), color: float4(0, 1, 0, 1), texture: float2(1, 0)), // Top Right
+        Vertex(position: float3(1, -1, 0), color: float4(0, 0, 1, 1), texture: float2(1, 1)), // Bottom Right
         
         
         // Image View or Frame vioew
@@ -63,10 +63,13 @@ class Renderer: NSObject, MTKViewDelegate {
         
         self.parent = parent
         
+        
+        
         if let metalDevice = MTLCreateSystemDefaultDevice() {
             self.metalDevice = metalDevice
+            
         }
-        
+    
         self.metalCommandQueue = metalDevice.makeCommandQueue()
         
         super.init()
@@ -82,16 +85,16 @@ class Renderer: NSObject, MTKViewDelegate {
     
     
     func setTextures(){
-        let bgImageName = "red_brick.jpeg"
-        let mainImageName = "face.jpg"
+        let bgImageName = "red_brick"
+        let mainImageName = "face"
         let textureLoader = MTKTextureLoader(device: metalDevice)
         
         do{
-            let textureUrlBg = Bundle.main.url(forResource: bgImageName, withExtension: nil)
-            let textureUrlImage = Bundle.main.url(forResource: mainImageName, withExtension: nil)
+            let textureUrlBg = Bundle.main.url(forResource: bgImageName, withExtension: "jpeg")
+            let textureUrlImage = Bundle.main.url(forResource: mainImageName, withExtension: "jpg")
             
-            self.backgroundTexture = try textureLoader.newTexture(URL: textureUrlBg!, options: [:])
-            self.imageTexture = try textureLoader.newTexture(URL: textureUrlImage!, options: [:])
+            self.backgroundTexture = try textureLoader.newTexture(URL: textureUrlBg!, options: [MTKTextureLoader.Option.SRGB: false])
+            self.imageTexture = try textureLoader.newTexture(URL: textureUrlImage!, options: [MTKTextureLoader.Option.SRGB: false])
         }
         catch{
             print("Error Loading textures \(error.localizedDescription)")
@@ -146,11 +149,12 @@ class Renderer: NSObject, MTKViewDelegate {
 extension Renderer{
     
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        
+        print("mtkView size is width =  \(size.width), height = \(size.height)")
+       
     }
     
     func draw(in view: MTKView) {
-        
+       
         guard let drawable = view.currentDrawable else{
             print("Drawable error didn't get currentDrawable")
             return
@@ -158,7 +162,7 @@ extension Renderer{
         
         let commandBuffer = metalCommandQueue.makeCommandBuffer()
         let renderPassDescriptor = view.currentRenderPassDescriptor
-        renderPassDescriptor?.colorAttachments[0].clearColor = MTLClearColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+        renderPassDescriptor?.colorAttachments[0].clearColor = MTLClearColor(red: 1, green: 1, blue: 0, alpha: 0)
         renderPassDescriptor?.colorAttachments[0].loadAction = .clear
         renderPassDescriptor?.colorAttachments[0].storeAction = .store
         
